@@ -6,17 +6,20 @@ function Home( { isAuth } ) {
 
     const [posts, setPosts] = useState([]);
 
-    console.log(posts);
-
     useEffect(  () => {
         const getPosts = async () => {
-            const postCollectionsRef = await getDocs( collection(db, 'posts') );
+            try {
+                const postCollectionsRef = await getDocs( collection(db, 'posts') );
             
-            const postList = postCollectionsRef.docs.map( doc => {
-                return {...doc.data(), id: doc.id}
-            } );
+                const postList = postCollectionsRef.docs.map( doc => {
+                    return {...doc.data(), id: doc.id}
+                } );
 
-            setPosts(postList)
+                setPosts(postList)
+
+            } catch( error ) {
+                console.log(error);
+            }
         }
 
         getPosts()

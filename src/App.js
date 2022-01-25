@@ -1,7 +1,6 @@
 import './App.css';
-import { useEffect, useState } from 'react'
-import { addDoc, collection, getDocs, updateDoc, doc } from 'firebase/firestore/lite';
-import { auth, db } from './firebase-config';
+import { useState } from 'react'
+import { auth } from './firebase-config';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';

@@ -7,7 +7,7 @@ function Login(  { setIsAuth } ) {
     let navigate = useNavigate();
     const signInWithGoogle = async ( ) => {
         try {
-            const result =  await signInWithPopup(auth, provider);
+            await signInWithPopup(auth, provider);
             setIsAuth(true);
             navigate("/");
         } catch( error ) {
